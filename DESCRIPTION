@@ -1,0 +1,10 @@
+Package: Diverse
+Title: An R package for comparing diversities 
+Version: 0.0.0.9000
+Authors@R: 
+    person("Nicole", "Dede", , "nicole.dede@selu.edu", role = c("aut", "cre"))
+Description: This package provides functions for analysing and comparing groupings of diversities.It allows you to plot a visualization of those diversites and there phylogenetic relationship, includes Shannon's Index and Huchenson-T test and some cleanup for datasets.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
