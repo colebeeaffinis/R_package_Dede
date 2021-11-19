@@ -9,6 +9,9 @@
 #'breakout_hist()
 
 breakout_hist<-function(dataset,xcol,frqcol,facetcol){
-  plot<-ggplot(data=dataset,aes(x=xcol,color=frqcol))+geom_histogram(stat=count)+facet_wrap(facets=vars(facetcol))
+  xcol <- enquo(xcol)
+  frqcol <- enquo(frqcol)
+  facetcol <- enquo(facetcol)
+  plot<-ggplot(data=dataset,aes(x={{xcol}},color={{frqcol}}))+geom_histogram(stat="count")+facet_wrap(facets=vars({{facetcol}}))
   return(plot)
 }
