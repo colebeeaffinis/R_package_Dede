@@ -1,8 +1,8 @@
 #'Performs a hutcheson-T test for two samples of an abundance dataset
 #'
-#'@Param sample1 Vector of abundance for a sample
-#'@Param sample2 Vector of abundance for another sample
-#'@Usage
+#'@param sample1 Vector of abundance for a sample
+#'@param sample2 Vector of abundance for another sample
+#'@usage
 #'hutcheson_t(grouped_data$'1',grouped_data$'3')
 
 hutcheson_t<-function(sample1,sample2){

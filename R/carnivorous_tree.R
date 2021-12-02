@@ -2,7 +2,7 @@
 #'
 #'@param Vspec A vector of species names
 #'@return product A plotted phylogenetic tree of those species
-#'@Usage
+#'@usage
 #'species<-c("Pinguicula lutea","Sarracenia alata", "Drosera tracyi","Pinguicula pumila")
 #'carnivorous_tree(species)
 

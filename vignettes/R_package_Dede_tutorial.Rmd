@@ -1,0 +1,56 @@
+---
+title: "R Package Dede"
+author: "Nicole Dede"
+date: "12/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Installation
+
+What to load in:
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(devtools)
+library(iNEXT)
+library(rotl)
+library(traits)
+library(phylotaR)
+```
+
+You might need to install diversity indices packages:
+
+```{r eval=FALSE}
+install.packages(iNEXT)
+install.packages(ecolTest)
+library(iNEXT)
+library(ecolTest)
+```
+
+Now we insall my package:
+
+```{r eval=FALSE}
+devtools::install_github("colebeeaffinis/R_Package_Dede")
+```
+
+Lets download data for the package:
+
+```{r eval=FALSE}
+download.file("https://raw.githubusercontent.com/colebeeaffinis/R_package_Dede/master/data/Ghana_Butterfly_Data.csv","/project/data/Ghana_Butterfly_Data.csv")
+```
+
+##Working Example
+
+an example of each function and how it works
+say something about why you have this function and what you would do with it
+say something about expected output
+
+```{r}
+library(Diverse)
+col.merge(gbutterflies,ScientificName,Species,Genus)
+```

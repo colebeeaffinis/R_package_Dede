@@ -1,11 +1,11 @@
 #'merges two columns into one.
 #'
-#'@Param Dataset
-#'@Param col1 The first column you want to merge.
-#'@Param col2 The second column you want to merge.
-#'@Param newname The new name of the merged column
+#'@param Dataset A dataset
+#'@param col1 The first column you want to merge.
+#'@param col2 The second column you want to merge.
+#'@param newname The new name of the merged column
 #'@return product A dataset like the input data set but with the two columns merged.
-#'@Usage
+#'@usage
 #'col.merge(gbutterflies,Scientific_name,Genus,Species)
 
 col.merge<-function(dataset,newname,col1,col2){

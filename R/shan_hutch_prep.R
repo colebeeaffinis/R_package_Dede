@@ -1,8 +1,8 @@
 #'turns a dataset into an abundance dataframe for Shannons index and Hutcheson-t test
 #'
-#'@Param dataset
-#'@Param samplecol A column of samples you want to index
-#'@Param speciescol A column of species
+#'@param dataset a dataset
+#'@param samplecol A column of samples you want to index
+#'@param speciescol A column of species
 #'@return A dataset of abundances
 #'@usage
 #'shan_hutch_prep(gbutterflies,SITE,Species)

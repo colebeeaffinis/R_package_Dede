@@ -1,6 +1,6 @@
 #'plots a dataset of shannons indexes
 #'
-#'@Peram dataset A dataframe of abundances
+#'@param dataset A dataframe of abundances
 #'@return  A plot of different shannons indexes
 #'@usage
 #'shannons_index(grouped_data)

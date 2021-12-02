@@ -2,13 +2,22 @@
 % Please edit documentation in R/breakout.hist.R
 \name{breakout_hist}
 \alias{breakout_hist}
-\title{Plots a faceted histogram with multiple variable frequancies.}
+\title{Plots a faceted histogram with multiple variable frequencies.}
 \usage{
-breakout_hist()
+breakout.hist(gbutterflies,ColMonth,Species,Site)
+}
+\arguments{
+\item{dataset}{}
+
+\item{xcol}{A categorical column within the dataset to plot on the x axis}
+
+\item{frqcol}{A categorical column to break up the different frequencies by}
+
+\item{facetcol}{A categorical column to facet out the plots by}
 }
 \value{
 plot A faceted out muli-variable histogram color coded with a legend
 }
 \description{
-Plots a faceted histogram with multiple variable frequancies.
+Plots a faceted histogram with multiple variable frequencies.
 }
