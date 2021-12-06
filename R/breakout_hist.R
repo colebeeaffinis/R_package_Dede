@@ -13,7 +13,7 @@ breakout_hist<-function(dataset,xcol,frqcol,facetcol){
   xcol <- enquo(xcol)
   frqcol <- enquo(frqcol)
   facetcol <- enquo(facetcol)
-  plot<-ggplot(data=dataset,aes(x={{xcol}},color={{frqcol}}))+geom_histogram(stat="count")+facet_wrap(facets=vars({{facetcol}}))
+  plot<-ggplot(data=dataset,aes(x={{xcol}},color={{frqcol}}))+geom_histogram(stat="count")+facet_wrap(facets=vars({{facetcol}}))+theme(axis.text.x=x=element_text(angle=45,hjust=1))
   return(plot)
   if(is.ggplot(plot)==FALSE){
     return("Error-not-ggplot")
