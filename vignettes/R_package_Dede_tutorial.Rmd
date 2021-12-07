@@ -26,9 +26,7 @@ library(phylotaR)
 You might need to install diversity indices packages:
 
 ```{r eval=FALSE}
-install.packages(iNEXT)
 install.packages(ecolTest)
-library(iNEXT)
 library(ecolTest)
 ```
 
@@ -38,19 +36,91 @@ Now we insall my package:
 devtools::install_github("colebeeaffinis/R_Package_Dede")
 ```
 
-Lets download data for the package:
+Lets download and read in data for the package:
 
 ```{r eval=FALSE}
 download.file("https://raw.githubusercontent.com/colebeeaffinis/R_package_Dede/master/data/Ghana_Butterfly_Data.csv","/project/data/Ghana_Butterfly_Data.csv")
+gbutterflies<-read_csv("data/Ghana_Butterfly_data.csv")
 ```
 
-##Working Example
+##Working Examples col.merge
 
-an example of each function and how it works
-say something about why you have this function and what you would do with it
-say something about expected output
+We can start with some data clean up. It is general practice to put genus and specific epithet name in separate columns when recording data. This usually allows for a cleaner and more flexible dataset when processing data. 
+
+However, for this example, we want to process the scientific species name as a whole. To do this we will merge our Genus and Species columns.
 
 ```{r}
 library(Diverse)
-col.merge(gbutterflies,ScientificName,Species,Genus)
+mgbutterflies<-col.merge(gbutterflies,ScientificName,Species,Genus)
 ```
+We should get an output of a dataset with these two columns now one column called ScientificName.
+
+##Working Example breakout.hist
+
+A good way to analyze this type of collection data across several sites is comparing frequencies between sites. We can plot out the species frequencies for each specific site in a faceted plot. 
+
+For insects, in this case butterflies, seasonality is incredibly important in determining what species are out. Our assemblage in the same site may look different in May then it does in August. We can account for this by plotting Species frequencies by month in each of site facets.
+
+```{r}
+breakout_hist(mgbutterflies,ColMonth,ScientificName,SITE)
+```
+We should get a ggplot of 7 different graphs with month on our x axis. We have a lot of different species in this data set so we will get quite a big legend and a lot of different colors for all the species.
+
+We could also use Genus instead of its species name to cut down on the amount of data we are plotting to hopefully be able to visualize the data better. For this we will use the Genus column of the gbutterflies dataset before we merged to columns.
+
+```{r}
+breakout_hist(gbutterflies,ColMonth,Genus,SITE)
+```
+We should get an only slightly less overwelming faceted histogram of genus frequencies by month for each site.
+
+##Working Example shan_hutch_prep
+
+As you can see, when you have a lot of species to work with, it could be difficult to visualize the diversitys of different sites and compare them on a ggplot. We can make the comparisons easier by using diversity indicies like Shannon's Diversity Index or Hutcheson-T Test. 
+
+First we have to do some data prep to be able to plug the right stuff into these indices.
+
+```{r}
+prepped_data<-shan_hutch_prep(mgbutterflies,SITE,ScientificName)
+```
+This should give us a dataset of abundances for each of our sites.
+
+##Working Example shannons_index
+
+Shannon's Diversity Index looks at the diversity of each site taking into account abundance of species. A high Shannon's diversity number means there is a high diversity, or there is a large variety of species. A low Shannon's diversity means the plot has few species, or a low diversity. 
+
+We can plot the Shannon's diversity for each site to compare.
+
+```{r}
+shannons_index(prepped_data)
+```
+We should get a # of individuals vs. diversity plot with a line for each site. If the dot is in the low right corner, then that site was dominated by a lot of one species. If the dot is in the top right, the site had a high diversity where each individual was a new species.
+
+##Working Example hutcheson_t
+
+If we are seeing two sites that are showing interesting differences, we can focus in and compare Shannon's diversity for just two sites with a Hutcheson-T Test. This allows us to test the statistical significance of the difference in Shannon's diversity.
+
+Lets say sites 1 and 3 are showing some interesting differences and we want to see if this is significant.
+```{r}
+hutcheson_t(prepped_data$'1',prepped_data$'3')
+```
+We should get a list of values. The p-value is the what we want to look at. If p is less then .05, then that difference in Shannon's diversity is significant.
+
+##Working Example carnivorous_tree
+
+We may also want to see how different species are related to each other using phylogenetic trees. 
+
+For my specific project, I will be working with many different species of carnivorous plants. It is important to understand the relationship between these different species. Lets say I am working with four species of carnivorous plants and want to see how they are related.
+
+```{r}
+species<-c("Pinguicula lutea","Sarracenia alata", "Drosera tracyi","Pinguicula pumila")
+carnivorous_tree(species)
+```
+We should get a plotted phylogenetic tree of all four species.
+
+We can also do this with some species from our data set
+
+```{r}
+bfspecies<-c("Amauris niavius","Amauris tartatea","Andronymus hero","Anthene locuples","Pseudoneptis bugandensis","Salamis cacta","Triclema hades")
+carnivorous_tree(bfspecies)
+```
+
