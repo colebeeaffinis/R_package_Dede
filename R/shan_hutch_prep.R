@@ -6,7 +6,7 @@
 #'@return A dataset of abundances
 #'@usage
 #'shan_hutch_prep(gbutterflies,SITE,Species)
-
+#'@export
 shan_hutch_prep<-function(dataset,samplecol,speciescol){
   grouped_data<-dataset %>% 
     group_by({{samplecol}},{{speciescol}}) %>% 

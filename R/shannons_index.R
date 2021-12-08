@@ -4,7 +4,7 @@
 #'@return  A plot of different shannons indexes
 #'@usage
 #'shannons_index(grouped_data)
-
+#'@export
 shannons_index<-function (dataset){
  dataset[is.na(dataset)]=0
  select_data<-dataset[2:7]

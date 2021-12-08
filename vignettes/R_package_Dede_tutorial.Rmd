@@ -1,5 +1,5 @@
 ---
-title: "R Package Dede"
+title: "Diverse"
 author: "Nicole Dede"
 date: "12/2/2021"
 output: html_document
@@ -33,14 +33,14 @@ library(ecolTest)
 Now we insall my package:
 
 ```{r eval=FALSE}
-devtools::install_github("colebeeaffinis/R_Package_Dede")
+#devtools::install_github("colebeeaffinis/R_package_Dede")
 ```
 
 Lets download and read in data for the package:
 
 ```{r}
-download.file("https://raw.githubusercontent.com/colebeeaffinis/R_package_Dede/master/data/Ghana_Butterfly_Data.csv","/project/data/Ghana_Butterfly_Data.csv")
-gbutterflies<-read_csv("data/Ghana_Butterfly_data.csv")
+download.file("https://raw.githubusercontent.com/colebeeaffinis/R_package_Dede/master/data/Ghana_Butterfly_Data.csv","/cloud/project/data/Ghana_Butterfly_Data.csv")
+gbutterflies<-read_csv("/cloud/project/data/Ghana_Butterfly_Data.csv")
 ```
 
 ##Working Examples col.merge

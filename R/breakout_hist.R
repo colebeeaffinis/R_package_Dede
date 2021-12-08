@@ -7,7 +7,7 @@
 #'@return plot A faceted out muli-variable histogram color coded with a legend 
 #'@usage
 #'breakout.hist(gbutterflies,ColMonth,Species,Site)
-
+#'@export
 
 breakout_hist<-function(dataset,xcol,frqcol,facetcol){
   xcol <- enquo(xcol)

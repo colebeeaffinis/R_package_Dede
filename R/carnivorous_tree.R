@@ -5,7 +5,7 @@
 #'@usage
 #'species<-c("Pinguicula lutea","Sarracenia alata", "Drosera tracyi","Pinguicula pumila")
 #'carnivorous_tree(species)
-
+#'@export
 carnivorous_tree<-function(species){
   species_resolved<-rotl::tnrs_match_names(species)
   tr <- tol_induced_subtree(ott_ids = ott_id(species_resolved))

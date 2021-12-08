@@ -7,7 +7,8 @@
 #'@return product A dataset like the input data set but with the two columns merged.
 #'@usage
 #'col.merge(gbutterflies,Scientific_name,Genus,Species)
-
+#'@export
+#'
 col.merge<-function(dataset,newname,col1,col2){
   mergedata<-dataset %>% 
     unite({{newname}},{{col1}},{{col2}})
