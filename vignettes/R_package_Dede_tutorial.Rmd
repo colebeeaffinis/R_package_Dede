@@ -38,7 +38,7 @@ devtools::install_github("colebeeaffinis/R_Package_Dede")
 
 Lets download and read in data for the package:
 
-```{r eval=FALSE}
+```{r}
 download.file("https://raw.githubusercontent.com/colebeeaffinis/R_package_Dede/master/data/Ghana_Butterfly_Data.csv","/project/data/Ghana_Butterfly_Data.csv")
 gbutterflies<-read_csv("data/Ghana_Butterfly_data.csv")
 ```
